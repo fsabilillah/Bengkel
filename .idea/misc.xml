@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="../../../../../../../layout/custom_preview.xml" value="0.2101851851851852" />
+        <entry key="app/src/main/res/layout-w1240dp/item_hak_akses.xml" value="0.12717536813922356" />
+        <entry key="app/src/main/res/layout/activity_api_check.xml" value="0.19791666666666666" />
+        <entry key="app/src/main/res/layout/activity_bottom.xml" value="0.2798913043478261" />
+        <entry key="app/src/main/res/layout/activity_login.xml" value="0.22" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.22" />
+        <entry key="app/src/main/res/layout/fragment_admin.xml" value="0.2798913043478261" />
+        <entry key="app/src/main/res/layout/fragment_admin_create.xml" value="0.19791666666666666" />
+        <entry key="app/src/main/res/layout/fragment_admin_create_dialog_list_dialog.xml" value="0.19791666666666666" />
+        <entry key="app/src/main/res/layout/fragment_admin_create_dialog_list_dialog_item.xml" value="0.19791666666666666" />
+        <entry key="app/src/main/res/layout/fragment_admin_delete.xml" value="0.19791666666666666" />
+        <entry key="app/src/main/res/layout/fragment_admin_read.xml" value="0.19791666666666666" />
+        <entry key="app/src/main/res/layout/fragment_admin_updae.xml" value="0.19791666666666666" />
+        <entry key="app/src/main/res/layout/fragment_admin_update.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/fragment_dashboard.xml" value="0.2798913043478261" />
+        <entry key="app/src/main/res/layout/fragment_service.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/fragment_service_create.xml" value="0.35572916666666665" />
+        <entry key="app/src/main/res/layout/fragment_service_update.xml" value="0.340625" />
+        <entry key="app/src/main/res/layout/fragment_suku_cadang.xml" value="0.35572916666666665" />
+        <entry key="app/src/main/res/layout/fragment_suku_cadang_create.xml" value="0.35572916666666665" />
+        <entry key="app/src/main/res/layout/fragment_suku_cadang_create_dialog.xml" value="0.35572916666666665" />
+        <entry key="app/src/main/res/layout/fragment_suku_cadang_update.xml" value="0.34959349593495936" />
+        <entry key="app/src/main/res/layout/item_cadang.xml" value="0.35572916666666665" />
+        <entry key="app/src/main/res/layout/item_hak_akses.xml" value="0.19791666666666666" />
+        <entry key="app/src/main/res/layout/item_service.xml" value="0.5" />
+        <entry key="app/src/main/res/layout/item_user.xml" value="0.25" />
+        <entry key="app/src/main/res/menu/bottom_nav_menu.xml" value="0.35572916666666665" />
+        <entry key="app/src/main/res/menu/navigation_rail_menu.xml" value="0.35572916666666665" />
+        <entry key="app/src/main/res/menu/toolbar_menu.xml" value="0.35572916666666665" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>
