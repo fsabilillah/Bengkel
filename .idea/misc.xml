@@ -25,9 +25,11 @@
         <entry key="app/src/main/res/layout/fragment_suku_cadang_create.xml" value="0.35572916666666665" />
         <entry key="app/src/main/res/layout/fragment_suku_cadang_create_dialog.xml" value="0.35572916666666665" />
         <entry key="app/src/main/res/layout/fragment_suku_cadang_update.xml" value="0.34959349593495936" />
+        <entry key="app/src/main/res/layout/fragment_usage.xml" value="0.33016304347826086" />
         <entry key="app/src/main/res/layout/item_cadang.xml" value="0.35572916666666665" />
         <entry key="app/src/main/res/layout/item_hak_akses.xml" value="0.19791666666666666" />
         <entry key="app/src/main/res/layout/item_service.xml" value="0.5" />
+        <entry key="app/src/main/res/layout/item_usage.xml" value="0.33016304347826086" />
         <entry key="app/src/main/res/layout/item_user.xml" value="0.25" />
         <entry key="app/src/main/res/menu/bottom_nav_menu.xml" value="0.35572916666666665" />
         <entry key="app/src/main/res/menu/navigation_rail_menu.xml" value="0.35572916666666665" />

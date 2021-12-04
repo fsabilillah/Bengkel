@@ -1,16 +1,13 @@
 package com.example.bengkel.data
 
 import com.example.bengkel.data.source.local.LocalDataSource
-import com.example.bengkel.data.source.local.entity.UserEntity
 import com.example.bengkel.data.source.remote.RemoteDataSource
 import com.example.bengkel.data.source.remote.network.ApiResponse
 import com.example.bengkel.data.source.remote.request.*
 import com.example.bengkel.data.source.remote.response.*
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.flow
-import kotlinx.coroutines.flow.flowOn
 
 class Repository(
     private val remoteDataSource: RemoteDataSource,
@@ -161,6 +158,35 @@ class Repository(
         flow {
             emit(Resource.Loading())
             when(val result = remoteDataSource.deleteService(id).first()){
+                is ApiResponse.Success -> emit(Resource.Success(result.data))
+                is ApiResponse.Error -> emit(Resource.Error<StatusResponse>(result.errorMessage))
+                is ApiResponse.Empty -> emit(Resource.Error<StatusResponse>("data empty"))
+            }
+        }
+
+    override fun createPemakaian(id: String, idSukuCadang: String, jumlahSukuCadang: String) =
+        flow{
+            emit(Resource.Loading())
+            when(val result = remoteDataSource.createPemakaian(id, idSukuCadang, jumlahSukuCadang).first()){
+                is ApiResponse.Success -> emit(Resource.Success(result.data))
+                is ApiResponse.Error -> emit(Resource.Error<StatusResponse>(result.errorMessage))
+                is ApiResponse.Empty -> emit(Resource.Error<StatusResponse>("data empty"))
+            }
+        }
+    override fun getPemakaian(id: String) =
+        flow{
+            emit(Resource.Loading())
+            when(val result = remoteDataSource.getPemakaian(id).first()){
+                is ApiResponse.Success -> emit(Resource.Success(result.data))
+                is ApiResponse.Error -> emit(Resource.Error<List<DataUsage>>(result.errorMessage))
+                is ApiResponse.Empty -> emit(Resource.Error<List<DataUsage>>("data empty"))
+            }
+        }
+
+    override fun deletePemakaian(id: String, idPakai: String) =
+        flow{
+            emit(Resource.Loading())
+            when(val result = remoteDataSource.deletePemakaian(id, idPakai).first()){
                 is ApiResponse.Success -> emit(Resource.Success(result.data))
                 is ApiResponse.Error -> emit(Resource.Error<StatusResponse>(result.errorMessage))
                 is ApiResponse.Empty -> emit(Resource.Error<StatusResponse>("data empty"))

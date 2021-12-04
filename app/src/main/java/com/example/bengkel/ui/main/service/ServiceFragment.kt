@@ -58,28 +58,48 @@ class ServiceFragment : Fragment() {
                 }
                 .setPositiveButton("delete") { dialog, _ ->
                     //delete action
-                    viewModel.delete(it.idService).observe(viewLifecycleOwner, {
+                    viewModel.delete(it.idService).observe(viewLifecycleOwner) {
                         dialog.dismiss()
-                        when(it){
+                        when (it) {
                             is Resource.Loading -> {
                                 binding.pbLoading.visibility = View.VISIBLE
                             }
                             is Resource.Success -> {
                                 binding.pbLoading.visibility = View.GONE
-                                FancyToast.makeText(context, "delete has successful", FancyToast.LENGTH_SHORT, FancyToast.SUCCESS, false).show()
+                                FancyToast.makeText(
+                                    context,
+                                    "delete has successful",
+                                    FancyToast.LENGTH_SHORT,
+                                    FancyToast.SUCCESS,
+                                    false
+                                ).show()
 
-                                Navigation.findNavController(requireActivity(), R.id.nav_host_fragment_content_main).navigate(
-                                    R.id.nav_service)
+                                Navigation.findNavController(
+                                    requireActivity(),
+                                    R.id.nav_host_fragment_content_main
+                                ).navigate(
+                                    R.id.nav_service
+                                )
                             }
                             is Resource.Error -> {
                                 binding.pbLoading.visibility = View.GONE
-                                FancyToast.makeText(context, "delete has failed", FancyToast.LENGTH_SHORT, FancyToast.ERROR, false).show()
+                                FancyToast.makeText(
+                                    context,
+                                    "delete has failed",
+                                    FancyToast.LENGTH_SHORT,
+                                    FancyToast.ERROR,
+                                    false
+                                ).show()
 
-                                Navigation.findNavController(requireActivity(), R.id.nav_host_fragment_content_main).navigate(
-                                    R.id.nav_service)
+                                Navigation.findNavController(
+                                    requireActivity(),
+                                    R.id.nav_host_fragment_content_main
+                                ).navigate(
+                                    R.id.nav_service
+                                )
                             }
                         }
-                    })
+                    }
 
                 }.show()
         }

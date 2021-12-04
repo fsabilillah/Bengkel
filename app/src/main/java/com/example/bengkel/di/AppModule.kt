@@ -18,6 +18,7 @@ import com.example.bengkel.ui.main.cadang.dialog.create.SukuCadangCreateViewMode
 import com.example.bengkel.ui.main.cadang.dialog.update.SukuCadangUpdateViewModel
 import com.example.bengkel.ui.main.dashboard.DashboardViewModel
 import com.example.bengkel.ui.main.service.ServiceViewModel
+import com.example.bengkel.ui.main.service.usage.UsageViewModel
 import com.example.bengkel.utils.UrlPreference
 import kotlinx.coroutines.Dispatchers
 import okhttp3.OkHttpClient
@@ -83,4 +84,5 @@ val viewModelModule = module {
     viewModel { ServiceViewModel(get()) }
     viewModel { SukuCadangCreateViewModel(get()) }
     viewModel { SukuCadangUpdateViewModel(get()) }
+    viewModel { UsageViewModel(get()) }
 }
