@@ -33,6 +33,7 @@ interface IRepository {
 
     /** pemakaian **/
     fun createPemakaian(id: String, idSukuCadang: String, jumlahSukuCadang: String): Flow<Resource<StatusResponse>>
+    fun updatePemakaian(idService: String, idPakai: String,  idSukuCadang: String, jumlahSukuCadang: String): Flow<Resource<StatusResponse>>
     fun getPemakaian(id: String): Flow<Resource<List<DataUsage>>>
     fun deletePemakaian(id: String, idPakai: String): Flow<Resource<StatusResponse>>
 }

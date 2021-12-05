@@ -98,6 +98,50 @@
         <argument
             android:name="service"
             app:argType="com.example.bengkel.data.source.remote.response.DataService" />
+        <action
+            android:id="@+id/action_nav_service_update_to_nav_usage"
+            app:destination="@id/nav_usage" />
+    </dialog>
+
+    <fragment
+        android:id="@+id/nav_usage"
+        android:name="com.example.bengkel.ui.main.service.usage.UsageFragment"
+        android:label="fragment_usage"
+        tools:layout="@layout/fragment_usage" >
+        <argument
+            android:name="idservice"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_nav_usage_to_nav_usage_create"
+            app:destination="@id/nav_usage_create" />
+        <action
+            android:id="@+id/action_nav_usage_to_nav_usage_update"
+            app:destination="@id/nav_usage_update" />
+    </fragment>
+    <dialog
+        android:id="@+id/nav_usage_create"
+        android:name="com.example.bengkel.ui.main.service.usage.dialog.create.UsageCreateDialogFragment"
+        android:label="UsageCreateDialogFragment" >
+        <argument
+            android:name="idService"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_nav_usage_create_to_nav_usage"
+            app:destination="@id/nav_usage" />
+    </dialog>
+    <dialog
+        android:id="@+id/nav_usage_update"
+        android:name="com.example.bengkel.ui.main.service.usage.dialog.update.UsageUpdateDialogFragment"
+        android:label="UsageUpdateDialogFragment" >
+        <argument
+            android:name="usage"
+            app:argType="com.example.bengkel.data.source.remote.response.DataUsage" />
+        <action
+            android:id="@+id/action_nav_usage_update_to_nav_usage"
+            app:destination="@id/nav_usage" />
+        <argument
+            android:name="idService"
+            app:argType="string" />
     </dialog>
 
 </navigation>

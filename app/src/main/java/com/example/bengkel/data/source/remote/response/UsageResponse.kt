@@ -17,6 +17,12 @@ data class UsageResponse(
 @Parcelize
 data class DataUsage(
 
+	@field:SerializedName("id_suku_cadang")
+	val idSukuCadang: String,
+
+	@field:SerializedName("id_pemakaian")
+	val idPemakaian: String,
+
 	@field:SerializedName("jumlah_suku_cadang")
 	val jumlahSukuCadang: String,
 

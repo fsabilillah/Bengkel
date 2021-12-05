@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.Navigation
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.bengkel.R
 import com.example.bengkel.data.Resource
@@ -117,6 +118,11 @@ class ServiceUpdateDialogFragment : BottomSheetDialogFragment() {
                         }
                     })
                 }
+            }
+
+            btnSukuCadang.setOnClickListener {
+                val sukuCadang = ServiceUpdateDialogFragmentDirections.actionNavServiceUpdateToNavUsage(service.idService)
+                findNavController().navigate(sukuCadang)
             }
         }
     }

@@ -11,103 +11,33 @@
         android:layout_height="wrap_content"
         android:padding="8dp">
         <TextView
-            android:id="@+id/txt_id"
+            android:id="@+id/txt_sukucadang"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:text="ID"
+            android:text="Suku Cadang"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/txt_nama_pel"
+            android:id="@+id/txt_jumlah"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:text="Nama Pelanggan"
+            android:text="Jumlah Stok"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txt_id" />
+            app:layout_constraintTop_toBottomOf="@+id/txt_sukucadang" />
 
         <TextView
-            android:id="@+id/txt_nama_bar"
+            android:id="@+id/txt_total"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:text="Barang"
+            android:text="Total Beli"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txt_nama_pel" />
+            app:layout_constraintTop_toBottomOf="@+id/txt_jumlah" />
 
-        <TextView
-            android:id="@+id/txt_no_tel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="No Telepon"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txt_nama_bar" />
 
-        <TextView
-            android:id="@+id/txt_tgl_ser"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="Tgl Service"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txt_no_tel" />
-
-        <TextView
-            android:id="@+id/txt_tgl_sel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="Tgl Selesai"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txt_tgl_ser" />
-
-        <TextView
-            android:id="@+id/txt_harga"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="Harga Jasa"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txt_tgl_sel" />
-
-        <TextView
-            android:id="@+id/txt_ket"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="Keterangan"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txt_harga" />
-
-        <TextView
-            android:id="@+id/txt_biaya"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="Biaya Tambahan"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txt_ket" />
-
-        <TextView
-            android:id="@+id/txt_tot"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="Total Harga"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txt_biaya" />
-
-        <TextView
-            android:id="@+id/txt_stat"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="Status"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txt_tot" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline2"
@@ -117,104 +47,31 @@
             app:layout_constraintGuide_begin="122dp" />
 
         <TextView
-            android:id="@+id/tv_id"
+            android:id="@+id/tv_sukucadang"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:text="ID"
+            android:text="Suku Cadang"
             app:layout_constraintStart_toStartOf="@+id/guideline2"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/tv_nama_pel"
+            android:id="@+id/tv_jumlah"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:text="Nama Pelanggan"
+            android:text="Jumlah Stok"
             app:layout_constraintStart_toStartOf="@+id/guideline2"
-            app:layout_constraintTop_toBottomOf="@+id/txt_id" />
+            app:layout_constraintTop_toBottomOf="@+id/txt_sukucadang" />
 
         <TextView
-            android:id="@+id/tv_nama_bar"
+            android:id="@+id/tv_total"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:text="Barang"
+            android:text="Total Beli"
             app:layout_constraintStart_toStartOf="@+id/guideline2"
-            app:layout_constraintTop_toBottomOf="@+id/txt_nama_pel" />
-
-        <TextView
-            android:id="@+id/tv_no_tel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="No Telepon"
-            app:layout_constraintStart_toStartOf="@+id/guideline2"
-            app:layout_constraintTop_toBottomOf="@+id/txt_nama_bar" />
-
-        <TextView
-            android:id="@+id/tv_tgl_ser"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="Tgl Service"
-            app:layout_constraintStart_toStartOf="@+id/guideline2"
-            app:layout_constraintTop_toBottomOf="@+id/txt_no_tel" />
-
-        <TextView
-            android:id="@+id/tv_tgl_sel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="Tgl Selesai"
-            app:layout_constraintStart_toStartOf="@+id/guideline2"
-            app:layout_constraintTop_toBottomOf="@+id/txt_tgl_ser" />
-
-        <TextView
-            android:id="@+id/tv_harga"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="Harga Jasa"
-            app:layout_constraintStart_toStartOf="@+id/guideline2"
-            app:layout_constraintTop_toBottomOf="@+id/txt_tgl_sel" />
-
-        <TextView
-            android:id="@+id/tv_ket"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="Keterangan"
-            app:layout_constraintStart_toStartOf="@+id/guideline2"
-            app:layout_constraintTop_toBottomOf="@+id/txt_harga" />
-
-        <TextView
-            android:id="@+id/tv_biaya"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="Biaya Tambahan"
-            app:layout_constraintStart_toStartOf="@+id/guideline2"
-            app:layout_constraintTop_toBottomOf="@+id/txt_ket" />
-
-        <TextView
-            android:id="@+id/tv_tot"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="Total Harga"
-            app:layout_constraintStart_toStartOf="@+id/guideline2"
-            app:layout_constraintTop_toBottomOf="@+id/txt_biaya" />
-
-        <TextView
-            android:id="@+id/tv_stat"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="Status"
-            app:layout_constraintStart_toStartOf="@+id/guideline2"
-            app:layout_constraintTop_toBottomOf="@+id/txt_tot" />
-
+            app:layout_constraintTop_toBottomOf="@+id/txt_jumlah" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/btn_delete"
@@ -237,7 +94,7 @@
             app:fabSize="mini"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/btn_delete"
-            app:layout_constraintTop_toBottomOf="@+id/tv_stat"
+            app:layout_constraintTop_toBottomOf="@+id/tv_total"
             app:srcCompat="@drawable/ic_baseline_edit_24" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>

@@ -173,6 +173,17 @@ class Repository(
                 is ApiResponse.Empty -> emit(Resource.Error<StatusResponse>("data empty"))
             }
         }
+
+    override fun updatePemakaian(idService: String, idPakai: String,  idSukuCadang: String, jumlahSukuCadang: String) =
+        flow{
+            emit(Resource.Loading())
+            when(val result = remoteDataSource.updatePemakaian(idService, idPakai, idSukuCadang, jumlahSukuCadang).first()){
+                is ApiResponse.Success -> emit(Resource.Success(result.data))
+                is ApiResponse.Error -> emit(Resource.Error<StatusResponse>(result.errorMessage))
+                is ApiResponse.Empty -> emit(Resource.Error<StatusResponse>("data empty"))
+            }
+        }
+
     override fun getPemakaian(id: String) =
         flow{
             emit(Resource.Loading())

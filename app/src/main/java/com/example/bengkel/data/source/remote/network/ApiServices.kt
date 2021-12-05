@@ -57,7 +57,10 @@ interface ApiServices {
     suspend fun getPemakaian(@Path("id") id: String): UsageResponse
 
     @POST("pemakaian/{id}")
-    suspend fun createPemakaian(@Path("id") id: String, @Field("id_suku_cadang") idSukuCadang: String, @Field("jumlah_suku_cadang") jumlahSukuCadang: String): StatusResponse
+    suspend fun createPemakaian(@Path("id") id: String, @Body request: UsageRequest): StatusResponse
+
+    @POST("update_pemakaian/{id_service}/{id_pakai}")
+    suspend fun updatePemakaian(@Path("id_service") idService: String, @Path("id_pakai") idPakai: String, @Body request: UsageRequest): StatusResponse
 
     @DELETE("pemakaian/{id_service}/{id_pakai}")
     suspend fun deletePemakaian(@Path("id_service") idService: String, @Path("id_pakai") idPakai: String): StatusResponse

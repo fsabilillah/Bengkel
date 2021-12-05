@@ -216,7 +216,22 @@ class RemoteDataSource(private val apiServices: ApiServices) {
     suspend fun createPemakaian(id: String, idSukuCadang: String, jumlahSukuCadang: String) =
         flow{
             try {
-                val response = apiServices.createPemakaian(id, idSukuCadang, jumlahSukuCadang)
+                val usage = UsageRequest(idSukuCadang, jumlahSukuCadang)
+                val response = apiServices.createPemakaian(id, usage)
+                if (response.status)
+                    emit(ApiResponse.Success(response))
+                else
+                    emit(ApiResponse.Empty)
+            } catch (e: Exception){
+                emit(ApiResponse.Error(e.message.toString()))
+            }
+        }.flowOn(Dispatchers.IO)
+
+    suspend fun updatePemakaian(idService: String, idPakai: String,  idSukuCadang: String, jumlahSukuCadang: String) =
+        flow{
+            try {
+                val usage = UsageRequest(idSukuCadang, jumlahSukuCadang)
+                val response = apiServices.updatePemakaian(idService, idPakai, usage)
                 if (response.status)
                     emit(ApiResponse.Success(response))
                 else
