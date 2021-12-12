@@ -40,16 +40,45 @@ class HistoryFragment : Fragment() {
             when(it){
                 is Resource.Loading -> {
                     binding.pbLoading.visibility = View.VISIBLE
+                    binding.lyEmpty.visibility = View.GONE
+                    binding.rvList.visibility = View.GONE
                 }
                 is Resource.Success -> {
                     binding.pbLoading.visibility = View.GONE
+                    binding.lyEmpty.visibility = View.GONE
+                    binding.rvList.visibility = View.VISIBLE
                     it.data?.let { service -> serviceAdapter.setData(service) }
                 }
                 is Resource.Error -> {
                     binding.pbLoading.visibility = View.GONE
+                    binding.rvList.visibility = View.GONE
+                    binding.lyEmpty.visibility = View.VISIBLE
                 }
             }
         })
+
+        binding.tfSearch.setEndIconOnClickListener { _ ->
+            viewModel.searchService(binding.tfSearch.editText.toString()).observe(viewLifecycleOwner, {
+                when(it){
+                    is Resource.Loading -> {
+                        binding.pbLoading.visibility = View.VISIBLE
+                        binding.lyEmpty.visibility = View.GONE
+                        binding.rvList.visibility = View.GONE
+                    }
+                    is Resource.Success -> {
+                        binding.pbLoading.visibility = View.GONE
+                        binding.lyEmpty.visibility = View.GONE
+                        binding.rvList.visibility = View.VISIBLE
+                        it.data?.let { s -> serviceAdapter.setData(s) }
+                    }
+                    is Resource.Error -> {
+                        binding.pbLoading.visibility = View.GONE
+                        binding.rvList.visibility = View.GONE
+                        binding.lyEmpty.visibility = View.VISIBLE
+                    }
+                }
+            })
+        }
 
     }
 

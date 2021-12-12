@@ -52,6 +52,12 @@ interface ApiServices {
     @DELETE("service/{id}")
     suspend fun deleteService(@Path("id") id: String): StatusResponse
 
+    @GET("service_selesai")
+    suspend fun getServiceDone() : ServiceResponse
+
+    @GET("search_service")
+    suspend fun getSearchService(@Query("id_service") idSearch : String): ServiceResponse
+
     /** pemakaian **/
     @GET("pemakaian/{id}")
     suspend fun getPemakaian(@Path("id") id: String): UsageResponse
@@ -65,7 +71,5 @@ interface ApiServices {
     @DELETE("pemakaian/{id_service}/{id_pakai}")
     suspend fun deletePemakaian(@Path("id_service") idService: String, @Path("id_pakai") idPakai: String): StatusResponse
 
-    @GET("service_selesai")
-    suspend fun getServiceDone() : ServiceResponse
 
 }

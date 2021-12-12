@@ -174,6 +174,16 @@ class Repository(
             }
         }
 
+    override fun getSearchService(idSearch: String) =
+        flow {
+            emit(Resource.Loading())
+            when(val result = remoteDataSource.getSearchService(idSearch).first()){
+                is ApiResponse.Success -> emit(Resource.Success(result.data))
+                is ApiResponse.Error -> emit(Resource.Error<List<DataService>>(result.errorMessage))
+                is ApiResponse.Empty -> emit(Resource.Error<List<DataService>>("data empty"))
+            }
+        }
+
     override fun createPemakaian(id: String, idSukuCadang: String, jumlahSukuCadang: String) =
         flow{
             emit(Resource.Loading())

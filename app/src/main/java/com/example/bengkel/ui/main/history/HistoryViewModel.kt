@@ -6,4 +6,5 @@ import com.example.bengkel.data.IRepository
 
 class HistoryViewModel(private val iRepository: IRepository) : ViewModel() {
     val history = iRepository.getServiceDone().asLiveData()
+    fun searchService(idSearch: String) = iRepository.getSearchService(idSearch).asLiveData()
 }

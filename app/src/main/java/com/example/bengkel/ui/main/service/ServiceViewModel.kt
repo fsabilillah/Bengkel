@@ -8,6 +8,7 @@ import com.example.bengkel.data.source.remote.request.ServiceUpdateRequest
 
 class ServiceViewModel(private val iRepository: IRepository) : ViewModel() {
     val service = iRepository.getServices().asLiveData()
+    fun searchService(idSearch: String) = iRepository.getSearchService(idSearch).asLiveData()
     fun delete(id: String) = iRepository.deleteService(id).asLiveData()
     fun create(serviceCreateRequest: ServiceCreateRequest) = iRepository.createService(serviceCreateRequest).asLiveData()
     fun update(id: String, serviceUpdateRequest: ServiceUpdateRequest) = iRepository.updateService(id, serviceUpdateRequest).asLiveData()
