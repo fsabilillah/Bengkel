@@ -17,6 +17,7 @@ import com.example.bengkel.ui.main.cadang.SukuCadangViewModel
 import com.example.bengkel.ui.main.cadang.dialog.create.SukuCadangCreateViewModel
 import com.example.bengkel.ui.main.cadang.dialog.update.SukuCadangUpdateViewModel
 import com.example.bengkel.ui.main.dashboard.DashboardViewModel
+import com.example.bengkel.ui.main.history.HistoryViewModel
 import com.example.bengkel.ui.main.service.ServiceViewModel
 import com.example.bengkel.ui.main.service.usage.UsageViewModel
 import com.example.bengkel.utils.UrlPreference
@@ -85,4 +86,5 @@ val viewModelModule = module {
     viewModel { SukuCadangCreateViewModel(get()) }
     viewModel { SukuCadangUpdateViewModel(get()) }
     viewModel { UsageViewModel(get()) }
+    viewModel { HistoryViewModel(get()) }
 }

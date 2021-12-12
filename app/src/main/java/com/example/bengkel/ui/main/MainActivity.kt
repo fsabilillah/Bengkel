@@ -51,6 +51,12 @@ class MainActivity : AppCompatActivity() {
                     )
                     true
                 }
+                R.id.nav_history -> {
+                    Navigation.findNavController(this, R.id.nav_host_fragment_content_main).navigate(
+                        R.id.nav_history
+                    )
+                    true
+                }
 
                 else -> false
             }

@@ -5,6 +5,8 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ArrayAdapter
+import android.widget.AutoCompleteTextView
 import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
@@ -42,6 +44,7 @@ class ServiceUpdateDialogFragment : BottomSheetDialogFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         val service = args.service
         with(binding){
+
             tfNamaPel.editText?.setText(service.namaPelanggan)
             tfNamaBar.editText?.setText(service.namaBarang)
             tfNoTelp.editText?.setText(service.noTelepon)
@@ -51,6 +54,10 @@ class ServiceUpdateDialogFragment : BottomSheetDialogFragment() {
             tfKeterangan.editText?.setText(service.keterangan)
             tfBiaya.editText?.setText(service.biayaTambahan)
             tfStatus.editText?.setText(service.status)
+
+
+            val adapter = ArrayAdapter(requireContext(), R.layout.item_dropdown, listOf("masuk", "proses", "selesai"))
+            (binding.tfStatus.editText as? AutoCompleteTextView)?.setAdapter(adapter)
 
             tfTglServ.editText?.setOnClickListener {
                 DatePickerDialog(

@@ -37,7 +37,7 @@ class ServiceFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val serviceAdapter = ServiceAdapter()
+        val serviceAdapter = ServiceAdapter("service")
         with(binding.rvList){
             layoutManager = LinearLayoutManager(context)
             setHasFixedSize(true)
