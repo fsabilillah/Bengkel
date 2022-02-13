@@ -272,4 +272,46 @@ class Repository(
                 is ApiResponse.Empty -> emit(Resource.Error("data empty"))
             }
         }
+
+    override fun getBiayaTambahan() =
+        flow{
+            emit(Resource.Loading())
+            when(val result = remoteDataSource.getBiayaTambahan().first()){
+                is ApiResponse.Success -> emit(Resource.Success(result.data.data))
+                is ApiResponse.Error -> emit(Resource.Error(result.errorMessage))
+                is ApiResponse.Empty -> emit(Resource.Error("data empty"))
+            }
+        }
+    override fun createBiayaTambahan(biayaTambahan: String) =
+        flow{
+            emit(Resource.Loading())
+            when(val result = remoteDataSource.createBiayaTambahan(biayaTambahan).first()){
+                is ApiResponse.Success -> emit(Resource.Success(result.data))
+                is ApiResponse.Error -> emit(Resource.Error(result.errorMessage))
+                is ApiResponse.Empty -> emit(Resource.Error("data empty"))
+            }
+        }
+
+    override fun updateBiayaTambahan(
+        id: String,
+        biayaTambahan: String
+    ) =
+        flow{
+            emit(Resource.Loading())
+            when(val result = remoteDataSource.updateBiayaTambahan(id, biayaTambahan).first()){
+                is ApiResponse.Success -> emit(Resource.Success(result.data))
+                is ApiResponse.Error -> emit(Resource.Error(result.errorMessage))
+                is ApiResponse.Empty -> emit(Resource.Error("data empty"))
+            }
+        }
+
+    override fun deleteBiayaTambahan(id: String) =
+        flow{
+            emit(Resource.Loading())
+            when(val result = remoteDataSource.deleteBiayaTambahan(id).first()){
+                is ApiResponse.Success -> emit(Resource.Success(result.data))
+                is ApiResponse.Error -> emit(Resource.Error(result.errorMessage))
+                is ApiResponse.Empty -> emit(Resource.Error("data empty"))
+            }
+        }
 }

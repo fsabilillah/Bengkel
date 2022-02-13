@@ -7,6 +7,10 @@
         <entry key="app/src/main/res/layout/fragment_admin.xml" value="0.2635416666666667" />
         <entry key="app/src/main/res/layout/fragment_admin_create.xml" value="0.2635416666666667" />
         <entry key="app/src/main/res/layout/fragment_admin_read.xml" value="0.2635416666666667" />
+        <entry key="app/src/main/res/layout/fragment_biaya.xml" value="0.16979166666666667" />
+        <entry key="app/src/main/res/layout/fragment_biaya_create.xml" value="0.22" />
+        <entry key="app/src/main/res/layout/fragment_biaya_read.xml" value="0.16979166666666667" />
+        <entry key="app/src/main/res/layout/fragment_biaya_update.xml" value="0.22" />
         <entry key="app/src/main/res/layout/fragment_history.xml" value="0.19427083333333334" />
         <entry key="app/src/main/res/layout/fragment_pelanggan.xml" value="0.2635416666666667" />
         <entry key="app/src/main/res/layout/fragment_pelanggan_create.xml" value="0.2635416666666667" />

@@ -84,4 +84,19 @@ interface ApiServices {
     @DELETE("pelanggan/{id}")
     suspend fun deletePelanggan(@Path("id") id: String): StatusResponse
 
+    /** biaya **/
+
+    @GET("biaya_tambahan")
+    suspend fun getBiayaTambahan(): BiayaResponse
+
+    @DELETE("biaya_tambahan/{id}")
+    suspend fun deleteBiayaTambahan(@Path("id") id: String): StatusResponse
+
+    @FormUrlEncoded
+    @POST("biaya_tambahan")
+    suspend fun createBiayaTambahan(@Field("biaya_tambahan") biayaTambahan: String): StatusResponse
+
+    @FormUrlEncoded
+    @POST("update_biaya_tambahan/{id}")
+    suspend fun updateBiayaTambahan(@Path("id") id: String, @Field("biaya_tambahan") biayaTambahan: String): StatusResponse
 }

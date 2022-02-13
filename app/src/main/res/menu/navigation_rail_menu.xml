@@ -27,6 +27,12 @@
         android:title="Suku Cadang"/>
 
     <item
+        android:id="@+id/nav_biaya_add"
+        android:enabled="true"
+        android:icon="@drawable/ic_baseline_monetization_on_24"
+        android:title="Biaya Tambahan"/>
+
+    <item
         android:id="@+id/nav_history"
         android:enabled="true"
         android:icon="@drawable/ic_baseline_history_24"

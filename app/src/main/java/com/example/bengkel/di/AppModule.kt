@@ -13,6 +13,7 @@ import com.example.bengkel.ui.login.LoginViewModel
 import com.example.bengkel.ui.main.admin.AdminViewModel
 import com.example.bengkel.ui.main.admin.dialog.create.AdminCreateDialogViewModel
 import com.example.bengkel.ui.main.admin.dialog.update.AdminUpdateDialogViewModel
+import com.example.bengkel.ui.main.biaya.BiayaViewModel
 import com.example.bengkel.ui.main.cadang.SukuCadangViewModel
 import com.example.bengkel.ui.main.cadang.dialog.create.SukuCadangCreateViewModel
 import com.example.bengkel.ui.main.cadang.dialog.update.SukuCadangUpdateViewModel
@@ -89,4 +90,5 @@ val viewModelModule = module {
     viewModel { UsageViewModel(get()) }
     viewModel { HistoryViewModel(get()) }
     viewModel { PelangganViewModel(get()) }
+    viewModel { BiayaViewModel(get()) }
 }

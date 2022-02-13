@@ -184,5 +184,40 @@
             android:name="pelanggan"
             app:argType="com.example.bengkel.data.source.remote.response.DataPelanggan" />
     </dialog>
+    <fragment
+        android:id="@+id/nav_biaya_add"
+        android:name="com.example.bengkel.ui.main.biaya.BiayaFragment"
+        android:label="fragment_biaya"
+        tools:layout="@layout/fragment_biaya" >
+        <action
+            android:id="@+id/action_nav_biaya_add_to_nav_biaya_add_create"
+            app:destination="@id/nav_biaya_add_create" />
+        <action
+            android:id="@+id/action_nav_biaya_add_to_nav_biaya_add_read"
+            app:destination="@id/nav_biaya_add_read" />
+        <action
+            android:id="@+id/action_nav_biaya_add_to_nav_biaya_add_update"
+            app:destination="@id/nav_biaya_add_update" />
+    </fragment>
+    <dialog
+        android:id="@+id/nav_biaya_add_create"
+        android:name="com.example.bengkel.ui.main.biaya.dialog.BiayaCreateDialogFragment"
+        android:label="BiayaCreateDialogFragment" />
+    <dialog
+        android:id="@+id/nav_biaya_add_read"
+        android:name="com.example.bengkel.ui.main.biaya.dialog.BiayaReadDialogFragment"
+        android:label="BiayaReadDialogFragment" >
+        <argument
+            android:name="biaya"
+            app:argType="com.example.bengkel.data.source.remote.response.DataBiaya" />
+    </dialog>
+    <dialog
+        android:id="@+id/nav_biaya_add_update"
+        android:name="com.example.bengkel.ui.main.biaya.dialog.BiayaUpdateDialogFragment"
+        android:label="BiayaUpdateDialogFragment" >
+        <argument
+            android:name="biaya"
+            app:argType="com.example.bengkel.data.source.remote.response.DataBiaya" />
+    </dialog>
 
 </navigation>

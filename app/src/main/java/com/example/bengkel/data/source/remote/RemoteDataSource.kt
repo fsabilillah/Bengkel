@@ -334,4 +334,57 @@ class RemoteDataSource(private val apiServices: ApiServices) {
                 emit(ApiResponse.Error(e.message.toString()))
             }
         }.flowOn(Dispatchers.IO)
+
+
+    suspend fun getBiayaTambahan() =
+        flow{
+            try {
+                val response = apiServices.getBiayaTambahan()
+                if (response.status)
+                    emit(ApiResponse.Success(response))
+                else
+                    emit(ApiResponse.Empty)
+            } catch (e: Exception){
+                emit(ApiResponse.Error(e.message.toString()))
+            }
+        }.flowOn(Dispatchers.IO)
+
+    suspend fun createBiayaTambahan(biayaTambahan: String) =
+        flow{
+            try {
+                val response = apiServices.createBiayaTambahan(biayaTambahan)
+                if (response.status)
+                    emit(ApiResponse.Success(response))
+                else
+                    emit(ApiResponse.Empty)
+            } catch (e: Exception){
+                emit(ApiResponse.Error(e.message.toString()))
+            }
+        }.flowOn(Dispatchers.IO)
+
+    suspend fun updateBiayaTambahan(id: String, biayaTambahan: String) =
+        flow{
+            try {
+                val response = apiServices.updateBiayaTambahan(id, biayaTambahan)
+                if (response.status)
+                    emit(ApiResponse.Success(response))
+                else
+                    emit(ApiResponse.Empty)
+            } catch (e: Exception){
+                emit(ApiResponse.Error(e.message.toString()))
+            }
+        }.flowOn(Dispatchers.IO)
+
+    suspend fun deleteBiayaTambahan(id: String) =
+        flow{
+            try {
+                val response = apiServices.deleteBiayaTambahan(id)
+                if (response.status)
+                    emit(ApiResponse.Success(response))
+                else
+                    emit(ApiResponse.Empty)
+            } catch (e: Exception){
+                emit(ApiResponse.Error(e.message.toString()))
+            }
+        }.flowOn(Dispatchers.IO)
 }
