@@ -8,7 +8,7 @@ import com.example.bengkel.data.source.local.entity.UserEntity
     entities = [
         UserEntity::class
     ],
-    version = 1,
+    version = 2,
     exportSchema = false
 )
 abstract class RoomDatabase : RoomDatabase() {

@@ -38,4 +38,10 @@ interface IRepository {
     fun updatePemakaian(idService: String, idPakai: String,  idSukuCadang: String, jumlahSukuCadang: String): Flow<Resource<StatusResponse>>
     fun getPemakaian(id: String): Flow<Resource<List<DataUsage>>>
     fun deletePemakaian(id: String, idPakai: String): Flow<Resource<StatusResponse>>
+
+    /** pelanggang **/
+    fun getPelanggan(): Flow<Resource<List<DataPelanggan>>>
+    fun createPelanggan(name: String, noHp: String, alamat: String): Flow<Resource<StatusResponse>>
+    fun updatePelanggan(id: String, name: String, noHp: String, alamat: String): Flow<Resource<StatusResponse>>
+    fun deletePelanggan(id: String): Flow<Resource<StatusResponse>>
 }

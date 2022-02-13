@@ -71,5 +71,17 @@ interface ApiServices {
     @DELETE("pemakaian/{id_service}/{id_pakai}")
     suspend fun deletePemakaian(@Path("id_service") idService: String, @Path("id_pakai") idPakai: String): StatusResponse
 
+    /** pelanggan **/
+    @GET("pelanggan")
+    suspend fun getPelanggan(): PelangganResponse
+
+    @POST("pelanggan")
+    suspend fun createPelanggan(@Body request: PelangganRequest): StatusResponse
+
+    @POST("update_pelanggan/{id}")
+    suspend fun updatePelanggan(@Path("id") id: String,@Body request: PelangganRequest): StatusResponse
+
+    @DELETE("pelanggan/{id}")
+    suspend fun deletePelanggan(@Path("id") id: String): StatusResponse
 
 }

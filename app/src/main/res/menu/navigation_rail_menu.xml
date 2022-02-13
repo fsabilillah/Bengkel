@@ -9,7 +9,12 @@
         android:id="@+id/nav_admin"
         android:enabled="true"
         android:icon="@drawable/ic_baseline_account_circle_24"
-        android:title="Admin"/>
+        android:title="Teknisi"/>
+    <item
+        android:id="@+id/nav_pelanggan"
+        android:enabled="true"
+        android:icon="@drawable/ic_baseline_account_circle_24"
+        android:title="Pelanggan"/>
     <item
         android:id="@+id/nav_service"
         android:enabled="true"

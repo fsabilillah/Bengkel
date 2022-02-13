@@ -150,4 +150,39 @@
         android:label="fragment_history"
         tools:layout="@layout/fragment_history" />
 
+    <fragment
+        android:id="@+id/nav_pelanggan"
+        android:name="com.example.bengkel.ui.main.pelanggan.PelangganFragment"
+        android:label="fragment_pelanggan" >
+        <action
+            android:id="@+id/action_nav_pelanggan_to_nav_pelanggan_create"
+            app:destination="@id/nav_pelanggan_create" />
+        <action
+            android:id="@+id/action_nav_pelanggan_to_nav_pelanggan_read"
+            app:destination="@id/nav_pelanggan_read" />
+        <action
+            android:id="@+id/action_nav_pelanggan_to_nav_pelanggan_update"
+            app:destination="@id/nav_pelanggan_update" />
+    </fragment>
+    <dialog
+        android:id="@+id/nav_pelanggan_create"
+        android:name="com.example.bengkel.ui.main.pelanggan.dialog.PelangganCreateDialogFragment"
+        android:label="PelangganCreateDialogFragment" />
+    <dialog
+        android:id="@+id/nav_pelanggan_read"
+        android:name="com.example.bengkel.ui.main.pelanggan.dialog.PelangganReadDialogFragment"
+        android:label="PelangganReadDialogFragment" >
+        <argument
+            android:name="pelanggan"
+            app:argType="com.example.bengkel.data.source.remote.response.DataPelanggan" />
+    </dialog>
+    <dialog
+        android:id="@+id/nav_pelanggan_update"
+        android:name="com.example.bengkel.ui.main.pelanggan.dialog.PelangganUpdateDialogFragment"
+        android:label="PelangganUpdateDialogFragment" >
+        <argument
+            android:name="pelanggan"
+            app:argType="com.example.bengkel.data.source.remote.response.DataPelanggan" />
+    </dialog>
+
 </navigation>

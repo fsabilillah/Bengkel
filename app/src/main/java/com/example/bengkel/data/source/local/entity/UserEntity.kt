@@ -10,7 +10,7 @@ import androidx.room.PrimaryKey
 data class UserEntity(
     @PrimaryKey
     @NonNull
-    @ColumnInfo(name = "id_users") var id_users : Int,
+    @ColumnInfo(name = "id_teknisi") var idTeknisi : Int,
     @ColumnInfo(name = "nama") var nama : String? = "",
     @ColumnInfo(name = "username") var username : String,
     @ColumnInfo(name = "password") var password : String,

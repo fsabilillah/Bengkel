@@ -4,7 +4,14 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.19427083333333334" />
+        <entry key="app/src/main/res/layout/fragment_admin.xml" value="0.2635416666666667" />
+        <entry key="app/src/main/res/layout/fragment_admin_create.xml" value="0.2635416666666667" />
+        <entry key="app/src/main/res/layout/fragment_admin_read.xml" value="0.2635416666666667" />
         <entry key="app/src/main/res/layout/fragment_history.xml" value="0.19427083333333334" />
+        <entry key="app/src/main/res/layout/fragment_pelanggan.xml" value="0.2635416666666667" />
+        <entry key="app/src/main/res/layout/fragment_pelanggan_create.xml" value="0.2635416666666667" />
+        <entry key="app/src/main/res/layout/fragment_pelanggan_read.xml" value="0.2635416666666667" />
+        <entry key="app/src/main/res/layout/fragment_pelanggan_update.xml" value="0.2635416666666667" />
         <entry key="app/src/main/res/layout/fragment_service.xml" value="0.33" />
         <entry key="app/src/main/res/layout/fragment_service_create.xml" value="0.19427083333333334" />
         <entry key="app/src/main/res/layout/fragment_service_update.xml" value="0.27309782608695654" />

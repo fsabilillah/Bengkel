@@ -29,8 +29,8 @@ data class DataLogin(
 	@field:SerializedName("hak_akses")
 	val hakAkses: String,
 
-	@field:SerializedName("id_users")
-	val idUsers: String,
+	@field:SerializedName("id_teknisi")
+	val idTeknisi: String,
 
 	@field:SerializedName("gambar")
 	val gambar: String,
@@ -47,5 +47,5 @@ data class DataLogin(
 
 
 fun DataLogin.mapToEntity() : UserEntity = UserEntity(
-	idUsers.toInt(), nama, username, password, email, alamat, noHp, gambar, hakAkses
+	idTeknisi.toInt(), nama, username, password, email, alamat, noHp, gambar, hakAkses
 )

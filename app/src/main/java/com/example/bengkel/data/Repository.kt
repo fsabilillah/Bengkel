@@ -223,4 +223,53 @@ class Repository(
                 is ApiResponse.Empty -> emit(Resource.Error<StatusResponse>("data empty"))
             }
         }
+
+    override fun getPelanggan() =
+        flow{
+            emit(Resource.Loading())
+            when(val result = remoteDataSource.getPelanggan().first()){
+                is ApiResponse.Success -> emit(Resource.Success(result.data))
+                is ApiResponse.Error -> emit(Resource.Error(result.errorMessage))
+                is ApiResponse.Empty -> emit(Resource.Error("data empty"))
+            }
+        }
+
+    override fun createPelanggan(
+        name: String,
+        noHp: String,
+        alamat: String
+    ) =
+        flow{
+            emit(Resource.Loading())
+            when(val result = remoteDataSource.createPelanggan(name, noHp, alamat).first()){
+                is ApiResponse.Success -> emit(Resource.Success(result.data))
+                is ApiResponse.Error -> emit(Resource.Error(result.errorMessage))
+                is ApiResponse.Empty -> emit(Resource.Error("data empty"))
+            }
+        }
+
+    override fun updatePelanggan(
+        id: String,
+        name: String,
+        noHp: String,
+        alamat: String
+    ) =
+        flow{
+            emit(Resource.Loading())
+            when(val result = remoteDataSource.updatePelanggan(id, name, noHp, alamat).first()){
+                is ApiResponse.Success -> emit(Resource.Success(result.data))
+                is ApiResponse.Error -> emit(Resource.Error(result.errorMessage))
+                is ApiResponse.Empty -> emit(Resource.Error("data empty"))
+            }
+        }
+
+    override fun deletePelanggan(id: String) =
+        flow{
+            emit(Resource.Loading())
+            when(val result = remoteDataSource.deletePelanggan(id).first()){
+                is ApiResponse.Success -> emit(Resource.Success(result.data))
+                is ApiResponse.Error -> emit(Resource.Error(result.errorMessage))
+                is ApiResponse.Empty -> emit(Resource.Error("data empty"))
+            }
+        }
 }

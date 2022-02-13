@@ -39,6 +39,12 @@ class MainActivity : AppCompatActivity() {
                     )
                     true
                 }
+                R.id.nav_pelanggan ->{
+                    Navigation.findNavController(this, R.id.nav_host_fragment_content_main).navigate(
+                        R.id.nav_pelanggan
+                    )
+                    true
+                }
                 R.id.nav_service ->{
                     Navigation.findNavController(this, R.id.nav_host_fragment_content_main).navigate(
                         R.id.nav_service

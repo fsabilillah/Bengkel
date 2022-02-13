@@ -280,4 +280,58 @@ class RemoteDataSource(private val apiServices: ApiServices) {
                 emit(ApiResponse.Error(e.message.toString()))
             }
         }.flowOn(Dispatchers.IO)
+
+    suspend fun getPelanggan() =
+        flow{
+            try {
+                val response = apiServices.getPelanggan()
+                if (response.status)
+                    emit(ApiResponse.Success(response.data))
+                else
+                    emit(ApiResponse.Empty)
+            } catch (e: Exception){
+                emit(ApiResponse.Error(e.message.toString()))
+            }
+        }.flowOn(Dispatchers.IO)
+
+    suspend fun createPelanggan(nama: String, noHp: String, alamat: String) =
+        flow{
+            try {
+                val customer = PelangganRequest(nama, noHp, alamat)
+                val response = apiServices.createPelanggan(customer)
+                if (response.status)
+                    emit(ApiResponse.Success(response))
+                else
+                    emit(ApiResponse.Empty)
+            } catch (e: Exception){
+                emit(ApiResponse.Error(e.message.toString()))
+            }
+        }.flowOn(Dispatchers.IO)
+
+    suspend fun updatePelanggan(id: String, nama: String, noHp: String, alamat: String) =
+        flow{
+            try {
+                val customer = PelangganRequest(nama, noHp, alamat)
+                val response = apiServices.updatePelanggan(id, customer)
+                if (response.status)
+                    emit(ApiResponse.Success(response))
+                else
+                    emit(ApiResponse.Empty)
+            } catch (e: Exception){
+                emit(ApiResponse.Error(e.message.toString()))
+            }
+        }.flowOn(Dispatchers.IO)
+
+    suspend fun deletePelanggan(id: String) =
+        flow{
+            try {
+                val response = apiServices.deletePelanggan(id)
+                if (response.status)
+                    emit(ApiResponse.Success(response))
+                else
+                    emit(ApiResponse.Empty)
+            } catch (e: Exception){
+                emit(ApiResponse.Error(e.message.toString()))
+            }
+        }.flowOn(Dispatchers.IO)
 }

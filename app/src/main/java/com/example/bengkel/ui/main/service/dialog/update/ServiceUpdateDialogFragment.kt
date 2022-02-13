@@ -80,9 +80,9 @@ class ServiceUpdateDialogFragment : BottomSheetDialogFragment() {
             }
 
 
-            viewModel.user.observe(viewLifecycleOwner, {
-                idUser.add(it.id_users.toString())
-            })
+            viewModel.user.observe(viewLifecycleOwner) {
+                idUser.add(it.idTeknisi.toString())
+            }
 
             btnAddService.setOnClickListener {
                 if (checkAllField()){
@@ -100,8 +100,8 @@ class ServiceUpdateDialogFragment : BottomSheetDialogFragment() {
                         tfBiaya.editText?.text.toString(),
                         tfStatus.editText?.text.toString()
                     )
-                    ).observe(viewLifecycleOwner, {
-                        when(it){
+                    ).observe(viewLifecycleOwner) {
+                        when (it) {
                             is Resource.Loading -> {
                                 btnAddService.isEnabled = false
                                 btnAddService.text = "Loading..."
@@ -109,21 +109,41 @@ class ServiceUpdateDialogFragment : BottomSheetDialogFragment() {
                             is Resource.Success -> {
                                 btnAddService.isEnabled = false
                                 btnAddService.text = "Loading..."
-                                FancyToast.makeText(context, "update service has successful", FancyToast.LENGTH_SHORT, FancyToast.SUCCESS, false).show()
+                                FancyToast.makeText(
+                                    context,
+                                    "update service has successful",
+                                    FancyToast.LENGTH_SHORT,
+                                    FancyToast.SUCCESS,
+                                    false
+                                ).show()
 
-                                Navigation.findNavController(requireActivity(), R.id.nav_host_fragment_content_main).navigate(
-                                    R.id.nav_service)
+                                Navigation.findNavController(
+                                    requireActivity(),
+                                    R.id.nav_host_fragment_content_main
+                                ).navigate(
+                                    R.id.nav_service
+                                )
                             }
                             is Resource.Error -> {
                                 btnAddService.isEnabled = true
                                 btnAddService.text = "Update Service"
-                                FancyToast.makeText(context, "update service has failed", FancyToast.LENGTH_SHORT, FancyToast.ERROR, false).show()
+                                FancyToast.makeText(
+                                    context,
+                                    "update service has failed",
+                                    FancyToast.LENGTH_SHORT,
+                                    FancyToast.ERROR,
+                                    false
+                                ).show()
 
-                                Navigation.findNavController(requireActivity(), R.id.nav_host_fragment_content_main).navigate(
-                                    R.id.nav_service)
+                                Navigation.findNavController(
+                                    requireActivity(),
+                                    R.id.nav_host_fragment_content_main
+                                ).navigate(
+                                    R.id.nav_service
+                                )
                             }
                         }
-                    })
+                    }
                 }
             }
 
