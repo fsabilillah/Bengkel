@@ -47,8 +47,6 @@ class ServiceUpdateDialogFragment : BottomSheetDialogFragment() {
 
             tfNamaPel.editText?.setText(service.namaPelanggan)
             tfNamaBar.editText?.setText(service.namaBarang)
-            tfNoTelp.editText?.setText(service.noTelepon)
-            tfTglServ.editText?.setText(service.tanggalService)
             tfTgSel.editText?.setText(service.tanggalSelesai)
             tfHarga.editText?.setText(service.hargaJasa)
             tfKeterangan.editText?.setText(service.keterangan)
@@ -58,16 +56,6 @@ class ServiceUpdateDialogFragment : BottomSheetDialogFragment() {
 
             val adapter = ArrayAdapter(requireContext(), R.layout.item_dropdown, listOf("masuk", "proses", "selesai"))
             (binding.tfStatus.editText as? AutoCompleteTextView)?.setAdapter(adapter)
-
-            tfTglServ.editText?.setOnClickListener {
-                DatePickerDialog(
-                    requireActivity(),
-                    dateListener(tfTglServ),
-                    calendar.get(Calendar.YEAR),
-                    calendar.get(Calendar.MONTH),
-                    calendar.get(Calendar.DAY_OF_MONTH)
-                ).show()
-            }
 
             tfTgSel.editText?.setOnClickListener {
                 DatePickerDialog(
@@ -84,22 +72,50 @@ class ServiceUpdateDialogFragment : BottomSheetDialogFragment() {
                 idUser.add(it.idTeknisi.toString())
             }
 
+            viewModel.getCustomer.observe(viewLifecycleOwner){
+                when(it){
+                    is Resource.Loading -> {}
+                    is Resource.Success -> {
+                        binding.tfNamaPel.visibility = View.VISIBLE
+                        for (data in it.data!!){
+                            viewModel.listCustomer[data.namaPelanggan] = data.idPelanggan
+                        }
+                        val adapterPel = ArrayAdapter(requireContext(), R.layout.item_dropdown, ArrayList(viewModel.listCustomer.keys))
+                        (binding.tfNamaPel.editText as? AutoCompleteTextView)?.setAdapter(adapterPel)
+                    }
+                    is Resource.Error -> {}
+                }
+            }
+
+            viewModel.getBiaya.observe(viewLifecycleOwner){
+                when(it){
+                    is Resource.Loading -> {}
+                    is Resource.Success -> {
+                        binding.tfNamaPel.visibility = View.VISIBLE
+                        for (data in it.data!!){
+                            viewModel.listBiaya[data.biayaTambahan] = data.idBiayaTambahan
+                        }
+                        val adapterPel = ArrayAdapter(requireContext(), R.layout.item_dropdown, ArrayList(viewModel.listBiaya.keys))
+                        (binding.tfBiaya.editText as? AutoCompleteTextView)?.setAdapter(adapterPel)
+                    }
+                    is Resource.Error -> {}
+                }
+            }
+
             btnAddService.setOnClickListener {
                 if (checkAllField()){
                     viewModel.update(
-                        service.idService,
+                        service.idNota,
                         ServiceUpdateRequest(
-                        idUser[0],
-                        tfNamaPel.editText?.text.toString(),
-                        tfNamaBar.editText?.text.toString(),
-                        tfNoTelp.editText?.text.toString(),
-                        tfTglServ.editText?.text.toString(),
-                        tfTgSel.editText?.text.toString(),
-                        tfHarga.editText?.text.toString(),
-                        tfKeterangan.editText?.text.toString(),
-                        tfBiaya.editText?.text.toString(),
-                        tfStatus.editText?.text.toString()
-                    )
+                            idUser[0],
+                            viewModel.listCustomer[tfNamaPel.editText?.text.toString()].toString(),
+                            tfNamaBar.editText?.text.toString(),
+                            tfTgSel.editText?.text.toString(),
+                            tfHarga.editText?.text.toString(),
+                            tfKeterangan.editText?.text.toString(),
+                            viewModel.listBiaya[tfBiaya.editText?.text.toString()].toString(),
+                            tfStatus.editText?.text.toString()
+                        )
                     ).observe(viewLifecycleOwner) {
                         when (it) {
                             is Resource.Loading -> {
@@ -176,14 +192,6 @@ class ServiceUpdateDialogFragment : BottomSheetDialogFragment() {
         }
         if (binding.tfNamaBar.editText?.text?.isEmpty() == true){
             binding.tfNamaBar.error = "This field is required"
-            return false
-        }
-        if (binding.tfNoTelp.editText?.text?.isEmpty() == true) {
-            binding.tfNoTelp.error = "This field is required"
-            return false
-        }
-        if (binding.tfTglServ.editText?.text?.isEmpty() == true) {
-            binding.tfTglServ.error = "This field is required"
             return false
         }
         if (binding.tfTgSel.editText?.text?.isEmpty() == true) {

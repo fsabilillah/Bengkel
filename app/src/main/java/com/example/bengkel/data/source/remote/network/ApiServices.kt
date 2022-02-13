@@ -55,8 +55,8 @@ interface ApiServices {
     @GET("service_selesai")
     suspend fun getServiceDone() : ServiceResponse
 
-    @GET("search_service")
-    suspend fun getSearchService(@Query("id_service") idSearch : String): ServiceResponse
+    @GET("service/{id}")
+    suspend fun getSearchService(@Path("id") idSearch : String): ServiceResponse
 
     /** pemakaian **/
     @GET("pemakaian/{id}")

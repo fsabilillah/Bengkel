@@ -14,6 +14,7 @@ import com.example.bengkel.databinding.FragmentServiceBinding
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.shashank.sony.fancytoastlib.FancyToast
 import org.koin.android.viewmodel.ext.android.viewModel
+import java.util.*
 
 class ServiceFragment : Fragment() {
 
@@ -58,7 +59,7 @@ class ServiceFragment : Fragment() {
                 }
                 .setPositiveButton("delete") { dialog, _ ->
                     //delete action
-                    viewModel.delete(it.idService).observe(viewLifecycleOwner) {
+                    viewModel.delete(it.idNota).observe(viewLifecycleOwner) {
                         dialog.dismiss()
                         when (it) {
                             is Resource.Loading -> {
@@ -114,8 +115,8 @@ class ServiceFragment : Fragment() {
 
     private fun getSearchData(serviceAdapter: ServiceAdapter) {
         binding.tfSearch.setEndIconOnClickListener { _ ->
-            viewModel.searchService(binding.tfSearch.editText.toString()).observe(viewLifecycleOwner, {
-                when(it){
+            viewModel.searchService(binding.tfSearch.editText?.text.toString().uppercase()).observe(viewLifecycleOwner) {
+                when (it) {
                     is Resource.Loading -> {
                         binding.pbLoading.visibility = View.VISIBLE
                         binding.lyEmpty.visibility = View.GONE
@@ -133,13 +134,13 @@ class ServiceFragment : Fragment() {
                         binding.lyEmpty.visibility = View.VISIBLE
                     }
                 }
-            })
+            }
         }
     }
 
     private fun getListService(serviceAdapter: ServiceAdapter) {
-        viewModel.service.observe(viewLifecycleOwner, {
-            when(it){
+        viewModel.service.observe(viewLifecycleOwner) {
+            when (it) {
                 is Resource.Loading -> {
                     binding.pbLoading.visibility = View.VISIBLE
                     binding.lyEmpty.visibility = View.GONE
@@ -157,7 +158,7 @@ class ServiceFragment : Fragment() {
                     binding.lyEmpty.visibility = View.VISIBLE
                 }
             }
-        })
+        }
     }
 
 }

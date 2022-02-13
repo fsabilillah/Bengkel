@@ -29,7 +29,7 @@
         <entry key="app/src/main/res/layout/item_cadang.xml" value="0.19791666666666666" />
         <entry key="app/src/main/res/layout/item_dropdown.xml" value="0.19791666666666666" />
         <entry key="app/src/main/res/layout/item_hak_akses.xml" value="0.19791666666666666" />
-        <entry key="app/src/main/res/layout/item_service.xml" value="0.17299898682877407" />
+        <entry key="app/src/main/res/layout/item_service.xml" value="0.25" />
         <entry key="app/src/main/res/layout/item_usage.xml" value="0.5" />
         <entry key="app/src/main/res/layout/item_user.xml" value="0.19791666666666666" />
         <entry key="app/src/main/res/menu/navigation_rail_menu.xml" value="0.19427083333333334" />

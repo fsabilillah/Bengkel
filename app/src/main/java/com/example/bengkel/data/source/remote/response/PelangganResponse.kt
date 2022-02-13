@@ -17,14 +17,14 @@ data class PelangganResponse(
 data class DataPelanggan(
 
 	@field:SerializedName("no_hp_pelanggan")
-	val noHpPelanggan: String? = null,
+	val noHpPelanggan: String,
 
 	@field:SerializedName("nama_pelanggan")
-	val namaPelanggan: String? = null,
+	val namaPelanggan: String,
 
 	@field:SerializedName("alamat_pelanggan")
-	val alamatPelanggan: String? = null,
+	val alamatPelanggan: String,
 
 	@field:SerializedName("id_pelanggan")
-	val idPelanggan: String? = null
+	val idPelanggan: String
 ): Parcelable

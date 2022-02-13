@@ -17,6 +17,9 @@ data class ServiceResponse(
 @Parcelize
 data class DataService(
 
+	@field:SerializedName("id_nota")
+	val idNota: String,
+
 	@field:SerializedName("nama_pelanggan")
 	val namaPelanggan: String,
 

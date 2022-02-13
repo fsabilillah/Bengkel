@@ -41,7 +41,7 @@ class ServiceAdapter(private val type: String): RecyclerView.Adapter<ServiceAdap
 
         fun bind(data: DataService) {
             with(binding){
-                tvId.text = data.idService
+                tvId.text = data.idNota
                 tvNamaPel.text = data.namaPelanggan
                 tvNamaBar.text = data.namaBarang
                 tvNoTel.text = data.noTelepon

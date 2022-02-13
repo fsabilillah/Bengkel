@@ -11,6 +11,8 @@ import org.koin.android.viewmodel.ext.android.viewModel
 import java.util.*
 
 import android.app.DatePickerDialog
+import android.widget.ArrayAdapter
+import android.widget.AutoCompleteTextView
 import androidx.navigation.Navigation
 import com.example.bengkel.R
 import com.example.bengkel.data.Resource
@@ -18,6 +20,7 @@ import com.example.bengkel.data.source.remote.request.ServiceCreateRequest
 import com.google.android.material.textfield.TextInputLayout
 import com.shashank.sony.fancytoastlib.FancyToast
 import java.text.SimpleDateFormat
+import kotlin.collections.ArrayList
 
 
 class ServiceCreateDialogFragment : BottomSheetDialogFragment() {
@@ -40,14 +43,20 @@ class ServiceCreateDialogFragment : BottomSheetDialogFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         with(binding){
-            tfTglServ.editText?.setOnClickListener {
-                DatePickerDialog(
-                    requireActivity(),
-                    dateListener(tfTglServ),
-                    calendar.get(Calendar.YEAR),
-                    calendar.get(Calendar.MONTH),
-                    calendar.get(Calendar.DAY_OF_MONTH)
-                ).show()
+
+            viewModel.getCustomer.observe(viewLifecycleOwner){
+                when(it){
+                    is Resource.Loading -> {}
+                    is Resource.Success -> {
+                        binding.tfNamaPel.visibility = View.VISIBLE
+                        for (data in it.data!!){
+                            viewModel.listCustomer[data.namaPelanggan] = data.idPelanggan
+                        }
+                        val adapter = ArrayAdapter(requireContext(), R.layout.item_dropdown, ArrayList(viewModel.listCustomer.keys))
+                        (binding.tfNamaPel.editText as? AutoCompleteTextView)?.setAdapter(adapter)
+                    }
+                    is Resource.Error -> {}
+                }
             }
 
             tfTgSel.editText?.setOnClickListener {
@@ -69,11 +78,10 @@ class ServiceCreateDialogFragment : BottomSheetDialogFragment() {
                 if (checkAllField()){
                     viewModel.create(ServiceCreateRequest(
                         idUser[0],
-                        tfNamaPel.editText?.text.toString(),
+                        viewModel.listCustomer[tfNamaPel.editText?.text.toString()].toString(),
                         tfNamaBar.editText?.text.toString(),
-                        tfNoTelp.editText?.text.toString(),
-                        tfTglServ.editText?.text.toString(),
                         tfTgSel.editText?.text.toString(),
+                        tfKeterangan.editText?.text.toString(),
                         tfHarga.editText?.text.toString()
                     )).observe(viewLifecycleOwner) {
                         when (it) {
@@ -96,7 +104,7 @@ class ServiceCreateDialogFragment : BottomSheetDialogFragment() {
                                     requireActivity(),
                                     R.id.nav_host_fragment_content_main
                                 ).navigate(
-                                    R.id.nav_cadang
+                                    R.id.nav_service
                                 )
                             }
                             is Resource.Error -> {
@@ -114,7 +122,7 @@ class ServiceCreateDialogFragment : BottomSheetDialogFragment() {
                                     requireActivity(),
                                     R.id.nav_host_fragment_content_main
                                 ).navigate(
-                                    R.id.nav_cadang
+                                    R.id.nav_service
                                 )
                             }
                         }
@@ -148,12 +156,8 @@ class ServiceCreateDialogFragment : BottomSheetDialogFragment() {
             binding.tfNamaBar.error = "This field is required"
             return false
         }
-        if (binding.tfNoTelp.editText?.text?.isEmpty() == true) {
-            binding.tfNoTelp.error = "This field is required"
-            return false
-        }
-        if (binding.tfTglServ.editText?.text?.isEmpty() == true) {
-            binding.tfTglServ.error = "This field is required"
+        if (binding.tfKeterangan.editText?.text?.isEmpty() == true) {
+            binding.tfKeterangan.error = "This field is required"
             return false
         }
         if (binding.tfTgSel.editText?.text?.isEmpty() == true) {

@@ -43,6 +43,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:text="No Telepon"
+            android:visibility="gone"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/txt_nama_bar" />
 
@@ -52,6 +53,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:text="Tgl Service"
+            android:visibility="gone"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/txt_no_tel" />
 
@@ -121,7 +123,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:text="ID"
+            android:text="ID Nota"
             app:layout_constraintStart_toStartOf="@+id/guideline2"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -149,6 +151,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:text="No Telepon"
+            android:visibility="gone"
             app:layout_constraintStart_toStartOf="@+id/guideline2"
             app:layout_constraintTop_toBottomOf="@+id/txt_nama_bar" />
 
@@ -158,6 +161,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:text="Tgl Service"
+            android:visibility="gone"
             app:layout_constraintStart_toStartOf="@+id/guideline2"
             app:layout_constraintTop_toBottomOf="@+id/txt_no_tel" />
 

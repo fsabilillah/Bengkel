@@ -36,8 +36,8 @@ class HistoryFragment : Fragment() {
             adapter = serviceAdapter
         }
 
-        viewModel.history.observe(viewLifecycleOwner, {
-            when(it){
+        viewModel.history.observe(viewLifecycleOwner) {
+            when (it) {
                 is Resource.Loading -> {
                     binding.pbLoading.visibility = View.VISIBLE
                     binding.lyEmpty.visibility = View.GONE
@@ -55,11 +55,11 @@ class HistoryFragment : Fragment() {
                     binding.lyEmpty.visibility = View.VISIBLE
                 }
             }
-        })
+        }
 
         binding.tfSearch.setEndIconOnClickListener { _ ->
-            viewModel.searchService(binding.tfSearch.editText.toString()).observe(viewLifecycleOwner, {
-                when(it){
+            viewModel.searchService(binding.tfSearch.editText?.text.toString().uppercase()).observe(viewLifecycleOwner) {
+                when (it) {
                     is Resource.Loading -> {
                         binding.pbLoading.visibility = View.VISIBLE
                         binding.lyEmpty.visibility = View.GONE
@@ -77,7 +77,7 @@ class HistoryFragment : Fragment() {
                         binding.lyEmpty.visibility = View.VISIBLE
                     }
                 }
-            })
+            }
         }
 
     }
