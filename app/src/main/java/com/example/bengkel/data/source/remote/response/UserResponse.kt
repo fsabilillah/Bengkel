@@ -28,7 +28,7 @@ data class DataUser(
 	@field:SerializedName("hak_akses")
 	val hakAkses: String,
 
-	@field:SerializedName("id_users")
+	@field:SerializedName("id_teknisi")
 	val idUsers: String,
 
 	@field:SerializedName("gambar")
